@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Axios from 'axios';
 
 function App() {
+  useEffect(() => {
+    Axios('https://jsonplaceholder.typicode.com/photos')
+    .then(res => {
+      console.log(res.data);
+    });
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
